@@ -3,9 +3,8 @@
 #include <fstream>
 #include <string>
 int Faculty::count = 0;
-Faculty::Faculty() :facultyName("Faculty"+std::to_string(this->count+1)), abbreviature("F"), decane("Decane"), yearOfCreating(2021),
- numOfSpecs(10), telephoneNumber("3802123456"), email("faculty@khnu.km.ua")
-{
+Faculty::Faculty() :Faculty("Faculty"+std::to_string(this->count+1),"F","Decane",
+	2021,10,5,"3802123456","faculty@khnu.km.ua"){
 	
 	cout << "Faculty \"" << this->facultyName << "\" was created" <<endl;
 }

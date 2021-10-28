@@ -4,7 +4,7 @@ Exam::~Exam()
 {
 }
 
-Exam::Exam(Faculty* f, Department* d, Student* s, Lecturer* l, Discipline* di) :
+Exam::Exam(Faculty* f, Department* d, Student* s, SeniorLecturer* l, Discipline* di) :
 	faculty(f), department(d), student(s), lecturer(l), discipline(di)
 {
 	cout << "Added to studiyng course exam on faculty " << this->faculty->abbreviature <<
@@ -17,6 +17,7 @@ void Exam::takeExam(string date)
 	cout << "Date: " << date << endl;
 	cout << "Exam of discipline " << this->discipline->getName() << " is taking by student " << this->student->getFullName() << " and checking by lecturer " << this->lecturer->getFullName()<<endl;
 	int score = rand() % 4 + 2;
+	this->lecturer->setExamSign(this);
 	cout << "Student scored " << score << endl;
 	if (score < 3)this->faculty->deductStudent(this->student);
 	else

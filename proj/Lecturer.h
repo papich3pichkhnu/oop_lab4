@@ -1,6 +1,7 @@
 #pragma once
 #include "Discipline.h"
 #include "Department.h"
+#include "Person.h"
 #include <iostream>
 #include <fstream>
 #include <string>
@@ -9,25 +10,17 @@ using namespace std;
 class Department;
 class Discipline;
 class Student;
-class Lecturer
+class Person;
+class Lecturer : public Person
 {
-private:
-		
+protected:		
 	Department* d;
-public:
-	string lastName;
-	string firstName;
-	string middleName;
-	void setName(string _lName);
-	void setName(string _lName, string _fName, string _mName);
+public:	
 	void setDepartment(Department* d);
 	Lecturer();
 	~Lecturer();
-	Lecturer(string _lName, string _fName, string _mName);
-	string getFirstName();
-	string getMiddleName();
-	string getLastName();
-	string getFullName();	
+	Lecturer(string _lName, string _fName, string _mName);		
+	Lecturer(string _ln, string _fn, string _mn, int _a, int _h, string _coe, string _coh);
 	static Lecturer readFromFile();
 	void printToFile();
 };

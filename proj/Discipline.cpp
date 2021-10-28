@@ -8,9 +8,7 @@ Discipline::Discipline(string _n, string _c, string _t, int _cr, int _nh, int _n
 {
 	cout << "Discipline \"" << _n << "\" was created" << endl;
 }
-Discipline::Discipline() : name("Discipline"), cathedra("Cathedra"),
-typeOfControl("Exam"), credits(60),
-numberOfHours(20), numberOfControlWorks(5)
+Discipline::Discipline() : Discipline("Discipline","Cathedra","Exam",60,20,5)
 {
 	cout << "Discipline \"" << "Discipline" << "\" was created" << endl;
 }
@@ -18,9 +16,8 @@ Discipline::~Discipline()
 {
 	cout << "Discipline \"" << this->name << "\" was destroyed" << endl;
 }
-Discipline::Discipline(const Discipline& _d) :
-	name(_d.name), cathedra(_d.cathedra), typeOfControl(_d.typeOfControl), credits(_d.credits),
-	numberOfHours(_d.numberOfHours), numberOfControlWorks(_d.numberOfControlWorks)
+Discipline::Discipline(const Discipline& _d) : Discipline(_d.name,_d.cathedra,_d.typeOfControl,_d.credits,
+	_d.numberOfHours, _d.numberOfControlWorks)
 {
 	cout << "Discipline \"" << _d.name << "\" was copied" << endl;
 }

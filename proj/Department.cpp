@@ -15,7 +15,7 @@ Department::~Department()
 	cout << "Deparment \"" << this->name << "\" was destroyed" << endl;
 }
 
-Department::Department() :name("DepartmentC"+std::to_string(++this->count)), f(nullptr),headOfDepartment(nullptr)
+Department::Department() :Department("DepartmentC"+std::to_string(++this->count))
 {
 
 	cout << "Deparment \"" << this->name << "\" was created" << endl;

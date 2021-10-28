@@ -3,30 +3,21 @@
 #include <fstream>
 #include <string>
 #include <time.h>
-Lecturer::Lecturer():lastName("Last name"),firstName("First name"),middleName("Middle name"),
-d(nullptr){
-	cout << "Lecturer \"" << this->getFullName() << "\" was created"<<endl;
-}
+
+Lecturer::Lecturer() :Lecturer("Last name", "First name", "Middle name") {}
 Lecturer::~Lecturer()
 {
-	this->d = nullptr;
-	
+	this->d = nullptr;	
 	cout << "Lecturer \"" << this->getFullName() << "\" was destroyed" << endl;	
 }
-Lecturer::Lecturer(string _lName, string _fName, string _mName):lastName(_lName),firstName(_fName),middleName(_mName)
+Lecturer::Lecturer(string _lName, string _fName, string _mName) :Lecturer(_lName, _fName, _mName, 30, 180, "Green", "Black") {}
+
+Lecturer::Lecturer(string _ln, string _fn, string _mn, int _a, int _h, string _coe, string _coh) :
+	Person(_ln, _fn, _mn, _a, _h, _coe, _coh),d(nullptr)
 {
 	cout << "Lecturer \"" << this->getFullName() << "\" was created" << endl;
+	
 }
-
-string Lecturer::getFirstName() { return this->firstName; }
-string Lecturer::getMiddleName() { return this->middleName; }
-string Lecturer::getLastName() { return this->lastName; }
-string Lecturer::getFullName() {
-	return this->lastName + " " + this->firstName + " " + this->middleName;
-}
-void Lecturer::setName(string _name) { this->firstName = _name; }
-void Lecturer::setName(string _lName, string _fName, string _mName) { this->lastName = _lName; this->firstName = _fName; this->middleName = _mName; }
-
 void Lecturer::setDepartment(Department* d)
 {
 	this->d = d;

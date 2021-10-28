@@ -3,34 +3,25 @@
 #include <fstream>
 #include <string>
 #include <time.h>
-int Student::count = 0;
-Student::Student():lastName("Last name"),firstName("First name"),middleName("Middle name"),
-age(18),height(170),colorOfEyes("Brown"),colorOfHair("Black"), sFaculty(nullptr)
-{
-	cout << "Student \"" << this->getFullName() << "\" was created"<<endl;
-	++Student::count;
-}
+
 Student::~Student()
 {
 	cout << "Student \"" << this->getFullName() << "\" was destroyed"<<endl;
 	this->sFaculty = nullptr;
-	++Student::count;
+
 }
 Student::Student(string _ln, string _fn, string _mn, int _a, int _h, string _coe, string _coh) :
-	lastName(_ln), firstName(_fn), middleName(_mn),
-	age(_a), height(_h), colorOfEyes(_coe), colorOfHair(_coh), sFaculty(nullptr)
-{
+	Person(_ln,_fn,_mn,_a,_h,_coe,_coh),sFaculty(nullptr){
 
 	cout << "Student \"" << this->getFullName() << "\" was created"<<endl;	
-	++Student::count;
+
+}
+Student::Student() :Student("Last name","First name","Middle name",
+18,170,"Brown","Black")
+{	
+	
 }
 
-void Student::setName(string _name) { this->firstName = _name; }
-void Student::setName(string _lName, string _fName, string _mName) { this->lastName = _lName; this->firstName = _fName; this->middleName = _mName; }
-void Student::setData(int _age) { this->age = _age; }
-void Student::setData(int _age, int _height) { this->age = _age; this->height = _height; }
-void Student::setEyesHair(string _colorOfEyes, string _colorOfHair) { this->colorOfEyes = _colorOfEyes; this->colorOfHair = _colorOfHair; }
-void Student::modifyName(Student* s) { this->firstName = "St." + this->firstName; }
 void Student::setFaculty(Faculty* _sFaculty) { this->sFaculty = _sFaculty; }
 
 void Student::printToFile()
@@ -96,11 +87,7 @@ Student Student::readFromFile()
 	in.close();
 	return obj;
 }
-string Student::getFirstName() { return this->firstName; }
-string Student::getMiddleName() { return this->middleName; }
-string Student::getLastName() { return this->lastName; }
-string Student::getFullName() { return this->lastName + " "+this->firstName + " " +this->middleName; }
-int Student::getAge() { return this->age; }
+
 void Student::speak(Student* another)
 {
 	cout << "Student " << this->getFullName() << " is speaking with student " << another->getFullName();

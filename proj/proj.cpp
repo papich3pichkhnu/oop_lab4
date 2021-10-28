@@ -3,6 +3,8 @@
 #include "Student.h"
 #include "Department.h"
 #include "Lecturer.h"
+#include "SeniorLecturer.h"
+#include "AssociateProfessor.h"
 #include "Exam.h"
 #include <time.h>
 using namespace std;
@@ -277,9 +279,10 @@ int main()
 	//cout << endl;
 	//cout << "/********************/" << endl;
 	//cout << endl;
+
 #pragma endregion
 
-	//task 18-21	
+		
 	Faculty* FIT = new Faculty("Faculty of information techologies", "FIT", "Savenko O.S.", 2000, 5, 10, "tel", "email");
 	
 	Department* KIIS = new Department("KIIS");
@@ -296,16 +299,23 @@ int main()
 
 	Discipline* OOP = new Discipline("OOP", "KI", "Exam", 10, 20, 5);
 	Discipline* CL = new Discipline("CL", "KI", "Course_Project", 10, 20, 5);
-	Discipline* SDA = new Discipline("SDA", "KI", "Exam", 10, 20, 5);
+	Discipline* WEB = new Discipline("WEB", "KI", "Exam", 10, 20, 5);
 
-	Lecturer* LSM = new Lecturer("Lysenko", "Sergiy", "Mykolayovych");		
-	Lecturer* POO = new Lecturer("Pavlova", "Olga", "Oleksandrivna");		
+	AssociateProfessor* LSM = new AssociateProfessor("Lysenko", "Sergiy", "Mykolayovych");
+	SeniorLecturer* POO = new SeniorLecturer("Pavlova", "Olga", "Oleksandrivna");
+	Lecturer* DDO = new Lecturer("Denysiuk", "Dmytro", "Oleksandrovych");
 
 	KIIS->enrollLecturer(LSM);
-	KN->enrollLecturer(POO);
+	KIIS->enrollLecturer(POO);
+	KIIS->enrollLecturer(DDO);
 
-	Exam* eOOP = new Exam(FIT, KIIS, AVR, LSM, OOP);
-	eOOP->takeExam("15.10.2021");
-	
+	//Exam* eOOP = new Exam(FIT, KIIS, AVR, DDO, WEB); error - DDO isn't SeniorLecturer or derived
+	//eOOP->takeExam("15.10.2021");
+	Exam* eCL = new Exam(FIT, KIIS, AVR, POO, CL);
+	eCL->takeExam("28.10.2021");
+	Exam* eOOP = new Exam(FIT, KIIS, ARV, LSM, OOP);
+	eOOP->takeExam("28.10.2021");
+	LSM->mentorCourseProject(AVR);
 	//Клас іспит(асоціація) 
+
 }
