@@ -43,7 +43,7 @@ void Discipline::printToFile()
 {
 	ofstream out("discfile.txt", ios::out);
 	out << this->name << endl;
-	out << this->cathedra << endl;
+	out << this->department->name << endl;
 	out << this->credits << endl;
 	out << this->numberOfControlWorks << endl;
 	out << this->numberOfHours << endl;
@@ -55,7 +55,7 @@ Discipline Discipline::readFromFile()
 	Discipline obj;
 	ifstream in("discfile.txt", ios::in);
 	in >> obj.name;
-	in >> obj.cathedra;
+	in >> obj.department->name;
 	in >> obj.credits;
 	in >> obj.numberOfControlWorks;
 	in >> obj.numberOfHours;
