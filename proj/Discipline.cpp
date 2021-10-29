@@ -3,29 +3,29 @@
 #include <fstream>
 #include <string>
 
-Discipline::Discipline(string _n, string _c, string _t, int _cr, int _nh, int _ncw) :
-	name(_n), cathedra(_c), typeOfControl(_t), credits(_cr), numberOfHours(_nh), numberOfControlWorks(_ncw)
+Discipline::Discipline(string _n, Department* _d, string _t, int _cr, int _nh, int _ncw) :
+	name(_n), department(_d), typeOfControl(_t), credits(_cr), numberOfHours(_nh), numberOfControlWorks(_ncw)
 {
 	cout << "Discipline \"" << _n << "\" was created" << endl;
 }
-Discipline::Discipline() : Discipline("Discipline","Cathedra","Exam",60,20,5)
+Discipline::Discipline() : Discipline("Discipline",new Department("Department"),"Exam",60,20,5)
 {
-	cout << "Discipline \"" << "Discipline" << "\" was created" << endl;
+	
 }
 Discipline::~Discipline()
 {
 	cout << "Discipline \"" << this->name << "\" was destroyed" << endl;
 }
-Discipline::Discipline(const Discipline& _d) : Discipline(_d.name,_d.cathedra,_d.typeOfControl,_d.credits,
+Discipline::Discipline(const Discipline& _d) : Discipline(_d.name,_d.department,_d.typeOfControl,_d.credits,
 	_d.numberOfHours, _d.numberOfControlWorks)
 {
-	cout << "Discipline \"" << _d.name << "\" was copied" << endl;
+	
 }
 string Discipline::getName() {
 	return this->name;
 }
-string Discipline::getCathedra() {
-	return this->cathedra;
+Department* Discipline::getDepartment() {
+	return this->department;
 }
 string Discipline::getTypeOfControl() {
 	return this->typeOfControl;

@@ -1,8 +1,10 @@
 #pragma once
+#include "Department.h"
 #include <iostream>
 #include <fstream>
 #include <string>
 using namespace std;
+class Department;
 class Discipline
 {
 private:	
@@ -11,14 +13,14 @@ private:
 	int numberOfControlWorks;
 public:
 	string name;
-	string cathedra;
+	Department* department;
 	string typeOfControl;
-	Discipline(string _n, string _c, string _t, int _cr, int _nh, int _ncw);
+	Discipline(string _n, Department* _d, string _t, int _cr, int _nh, int _ncw);
 	Discipline();
 	~Discipline();
 	Discipline(const Discipline &_d);
 	string getName();
-	string getCathedra();
+	Department* getDepartment();
 	string getTypeOfControl();	
 	int getCredits();
 	int getNumberOfHours();
