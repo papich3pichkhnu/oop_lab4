@@ -11,8 +11,7 @@ Person::~Person()
 {
 	cout << "Person \"" << this->getFullName() << "\" was destroyed" << endl;
 }
-Person::Person(string _lName, string _fName, string _mName) :lastName(_lName), firstName(_fName), middleName(_mName),
-age(18),height(170),colorOfEyes("Brown"),colorOfHair("Black")
+Person::Person(string _lName, string _fName, string _mName) :Person(_lName, _fName,_mName,18,170,"Brown","Black")
 {
 	
 }

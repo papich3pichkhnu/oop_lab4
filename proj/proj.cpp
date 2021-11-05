@@ -297,9 +297,9 @@ int main()
 	FIT->enrollStudent(AVR);
 	FIT->enrollStudent(ARV);
 
-	Discipline* OOP = new Discipline("OOP", "KI", "Exam", 10, 20, 5);
-	Discipline* CL = new Discipline("CL", "KI", "Course_Project", 10, 20, 5);
-	Discipline* WEB = new Discipline("WEB", "KI", "Exam", 10, 20, 5);
+	Discipline* OOP = new Discipline("OOP", KIIS, "Exam", 10, 20, 5);
+	Discipline* CL = new Discipline("CL", KIIS, "Course_Project", 10, 20, 5);
+	Discipline* WEB = new Discipline("WEB", KIIS, "Exam", 10, 20, 5);
 
 	AssociateProfessor* LSM = new AssociateProfessor("Lysenko", "Sergiy", "Mykolayovych");
 	SeniorLecturer* POO = new SeniorLecturer("Pavlova", "Olga", "Oleksandrivna");
@@ -316,6 +316,6 @@ int main()
 	Exam* eOOP = new Exam(FIT, KIIS, ARV, LSM, OOP);
 	eOOP->takeExam("28.10.2021");
 	LSM->mentorCourseProject(AVR);
-	//Клас іспит(асоціація) 
+	
 
 }
